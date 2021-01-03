@@ -18,6 +18,23 @@ def get_email(filename):
 				email_list.append(line[6:])
 	return email_list
 
-get_name("mbox-short.txt")
+name = get_name("mbox-short.txt") 
+email = get_email("mbox-short.txt") 
 
 # storing the names and email as dictionary key value pair
+
+info = {}
+
+for i in range(len(name)-1):
+	info[name[i]] = email[i]
+
+
+
+def decorate(dictionary1,lwidth,rwidth):
+	print("Name and Email".center(lwidth+rwidth,'-'))
+	for k,v in dictionary1.items():
+		print(k.ljust(lwidth,'.')+v.rjust(rwidth))
+
+decorate(info,30,40)
+
+
