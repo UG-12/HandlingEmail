@@ -1,6 +1,12 @@
 # function to get names and emails
 def get_name(filename):
-	pass
+	name_list = []
+	emails = get_email(filename)
+	for email in emails:
+		index = email.find("@")
+		name_list.append(email[:index])
+	return name_list
+
 
 
 def get_email(filename):
@@ -10,8 +16,8 @@ def get_email(filename):
 			line = line.rstrip()
 			if line.startswith("From:"):
 				email_list.append(line[6:])
-	print(email_list)
+	return email_list
 
-get_email("mbox-short.txt")
+get_name("mbox-short.txt")
 
 # storing the names and email as dictionary key value pair
